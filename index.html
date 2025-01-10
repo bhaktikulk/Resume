@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable Resume</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="resume">
+    <!-- Header Section -->
+    <header class="header">
+      <h1 contenteditable="true">JOHN DOE</h1>
+      <p class="subtitle" contenteditable="true">SOFTWARE DEVELOPER</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Left Column -->
+      <div class="left-column">
+        <!-- Profile Image Section -->
+        <div class="profile-image">
+          <img id="profile-pic" src="profile-placeholder.jpg" alt="Profile" />
+          <input type="file" id="image-upload" accept="image/*" />
+        </div>
+
+        <!-- Personal Profile Section -->
+        <section class="personal-profile">
+          <h2>PERSONAL PROFILE</h2>
+          <p contenteditable="true">
+            A passionate software developer with a proven track record in designing, developing, and implementing scalable and efficient software solutions. Skilled in both frontend and backend development, with expertise in modern frameworks and best practices.
+          </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+          <h2>SKILLS</h2>
+          <ul>
+            <li contenteditable="true">Proficient in Java, Python, and JavaScript</li>
+            <li contenteditable="true">Frontend Development: React, Angular</li>
+            <li contenteditable="true">Backend Development: Node.js, Django</li>
+            <li contenteditable="true">Database Management: MySQL, MongoDB</li>
+            <li contenteditable="true">Cloud Computing: AWS, Azure</li>
+            <li contenteditable="true">Version Control: Git, GitHub</li>
+          </ul>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-information">
+          <h2>CONTACT INFORMATION</h2>
+          <p contenteditable="true">123 Anywhere St., Any City, ST 12345</p>
+          <p contenteditable="true">john.doe@example.com</p>
+          <p contenteditable="true">+1 (123) 456-7890</p>
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <!-- Education Section -->
+        <section class="education">
+          <h2>EDUCATION</h2>
+          <div class="education-item">
+            <h3 contenteditable="true">University of Technology</h3>
+            <p contenteditable="true">Bachelor’s Degree in Computer Science | 2015-2019</p>
+            <ul>
+              <li contenteditable="true">Graduated with distinction</li>
+              <li contenteditable="true">Published research on cloud-based application optimization</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience">
+          <h2>PROFESSIONAL EXPERIENCE</h2>
+          <div class="experience-item">
+            <h3 contenteditable="true">Senior Software Developer</h3>
+            <p contenteditable="true">Tech Solutions Inc. | 2020-Present</p>
+            <ul>
+              <li contenteditable="true">Developed and optimized web applications with React and Node.js</li>
+              <li contenteditable="true">Designed scalable APIs and integrated third-party services</li>
+              <li contenteditable="true">Mentored junior developers and conducted code reviews</li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <h3 contenteditable="true">Software Developer</h3>
+            <p contenteditable="true">Innovative Apps | 2019-2020</p>
+            <ul>
+              <li contenteditable="true">Implemented dynamic user interfaces with Angular</li>
+              <li contenteditable="true">Contributed to backend development with Python and Django</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects">
+          <h2>PROJECTS</h2>
+          <p contenteditable="true">
+            - Developed a task management app that increased team productivity by 25%.<br>
+            - Designed and deployed a scalable e-commerce platform using AWS.<br>
+            - Created a chatbot for customer service that reduced response times by 40%.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Profile Image Upload Logic
+    document.getElementById("image-upload").addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.getElementById("profile-pic").src = reader.result;
+      };
+      if (file) {
+        reader.readAsDataURL(file);
+        // Hide the file input after uploading
+        document.getElementById("image-upload").style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
